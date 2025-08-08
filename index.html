@@ -75,8 +75,16 @@
             const medicationTimesContainer = document.getElementById('medication-times');
             const alarmSound = document.getElementById('alarm-sound');
             const clearLogButton = document.getElementById('clear-log-button');
+                                // Updating the first time to be time current plus 1 minute for testing purposes. 
+            // Get current time + 1 minute (rounded to next minute)
+            const now = new Date();
+            now.setSeconds(0, 0); // zero out seconds and ms
+            now.setMinutes(now.getMinutes() + 1);
+            const firstTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
 
-            let medicationTimes = ['08:00', '10:30', '13:00', '15:30'];
+            // Set medication times for testing
+            let medicationTimes = [firstTime, '10:30', '13:00', '15:30'];
+            //let medicationTimes = ['08:00', '10:30', '13:00', '15:30'];
             let snoozeTimeout = null;
             let alarmActiveFor = null;
 
